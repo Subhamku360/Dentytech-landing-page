@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: MyOwn;
+}
+
+@font-face {
+    font-family: MyOwn;
+    src: url("Gilroy-FREE/Gilroy-Light.otf");
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------------- HEADER ---------------- */
+.Header {
+    height: 20%;
+    width: 100%;
+}
+
+.Nav {
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Nav .start ul,
+.Nav .mid ul,
+.Nav .end ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+/* Start part */
+.Nav .start .Menu {
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.Nav .start .icon {
+    padding: 2px 10px;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+/* Mid part */
+.Nav .mid img {
+    height: 30px;
+    width: 30px;
+}
+.Nav .mid h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* End part */
+.Nav .end .Menu {
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.Nav .end .Signup {
+    background-color: #f05b36;
+    color: white;
+    border: 2px solid #f05b36;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.section {
+    height: 60%;
+    width: 100%;
+    position: relative;
+}
+
+.section h1 {
+    font-size: 8vw;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.image .images {
+    height: 400px;
+    width: 300px;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    border-radius: 20px;
+}
+
+/* Rotated stacked images */
+.image1 { z-index: 2; transform: translate(-50%, -50%) rotate(40deg); }
+.image2 { z-index: 3; transform: translate(-50%, -50%) rotate(30deg); }
+.image3 { z-index: 4; transform: translate(-50%, -50%) rotate(20deg); }
+.image4 { z-index: 5; transform: translate(-50%, -50%) rotate(0deg); }
+
+/* ---------------- FOOTER ---------------- */
+.footer {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.endfoot {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.link a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* ---------------- RESPONSIVENESS ---------------- */
+@media (max-width: 768px) {
+    .section h1 {
+        font-size: 12vw;
+    }
+    .image .images {
+        height: 250px;
+        width: 180px;
+    }
+}
+
+
+/* ------------------ANIMATION------------------------ */
+/* Stacked background images */
+.image1, .image2, .image3 , .image4{
+    animation: rotateBg 10s linear infinite alternate;
+}
+
+/* Each with a different delay so they rotate smoothly */
+.image1 { animation-delay: 0s; }
+.image2 { animation-delay: 2s; }
+.image3 { animation-delay: 4s; }
+.image4 { animation-delay: 6s; }
+
+/* Keep the main/front image still */
+.image4 {
+    z-index: 5;
+    border-radius: 20px;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Keyframes for rotation */
+@keyframes rotateBg {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); }
+    25%  { transform: translate(-50%, -50%) rotate(20deg); }
+    50% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+.icon:hover{
+    scale: 1.2;
+    /* margin-right: 20px; */
+    transition: all .5s .1s;
+}
+.Menu:hover{
+     scale: 1.2;
+    /* margin-right: 20px; */
+    transition: all .5s .1s;
+}
